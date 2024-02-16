@@ -19,12 +19,18 @@ func main() {
 	// TODO: write goroutine with different variants for function call.
 
 	// goroutine function call
+	go fun("goroutine call")
 
 	// goroutine with anonymous function
+	go func() {
+		fmt.Println("Anonymous function")
+	}()
 
 	// goroutine with function value call
+	functionValue := fun
+	go functionValue("Test")
 
 	// wait for goroutines to end
-
+	time.Sleep(5 * time.Millisecond)
 	fmt.Println("done..")
 }
