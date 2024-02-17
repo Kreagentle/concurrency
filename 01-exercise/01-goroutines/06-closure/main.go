@@ -8,8 +8,7 @@ import (
 func main() {
 	var wg sync.WaitGroup
 
-	// what is the output
-	//TODO: fix the issue.
+	// what is the output 4 4 4
 
 	for i := 1; i <= 3; i++ {
 		wg.Add(1)
@@ -17,6 +16,6 @@ func main() {
 			defer wg.Done()
 			fmt.Println(i)
 		}()
+		wg.Wait()
 	}
-	wg.Wait()
 }
