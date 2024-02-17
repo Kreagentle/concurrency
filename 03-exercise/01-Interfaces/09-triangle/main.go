@@ -47,10 +47,22 @@ func angle(a, b, c float64) float64 {
 	return math.Acos((a*a+b*b-c*c)/(2*a*b)) * 180.0 / math.Pi
 }
 
-// TODO: Instantiate circle, triangle, rectangle with values
 // Print area of each.
 // print angles of the triangle
+type shape interface {
+	area() float64
+}
 
 func main() {
-
+	shapes := []shape{
+		circle{1.0},
+		rectangle{5, 10},
+		triangle{10, 4, 7},
+	}
+	for _, v := range shapes {
+		fmt.Println(v, "\tArea:", v.area())
+		if t, ok := v.(triangle); ok {
+			fmt.Println("Angles:", t.angles())
+		}
+	}
 }
