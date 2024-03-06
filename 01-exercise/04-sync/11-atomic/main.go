@@ -13,7 +13,7 @@ func main() {
 	var counter uint64
 	var wg sync.WaitGroup
 
-	// TODO: implement concurrency safe counter
+	// implement concurrency safe counter
 
 	for i := 0; i < 50; i++ {
 		wg.Add(1)
